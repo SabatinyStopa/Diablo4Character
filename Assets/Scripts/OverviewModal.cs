@@ -19,7 +19,11 @@ namespace Diablo4Copy.Common
             }
         }
 
-        public void OnClickClose() => gameObject.SetActive(false);
+        public void OnClickClose()
+        {
+            CharacterSelectionManager.Instance.CanHover = true;
+            gameObject.SetActive(false);
+        }
 
         public void OnClickSelect() => CharacterSelectionManager.Instance.OnClickSelect(currentId);
     }

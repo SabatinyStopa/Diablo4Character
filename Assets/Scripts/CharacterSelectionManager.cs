@@ -13,6 +13,10 @@ namespace Diablo4Copy.Managers
         [SerializeField] private OverviewModal overviewModal;
         [SerializeField] private CostumizationManager costumizationManager;
 
+        private bool canHover = true;
+
+        public bool CanHover { get => canHover; set => canHover = value; }
+
         private void Awake() => Instance = this;
 
         public void ShowSelectionModal(int id)
@@ -24,11 +28,18 @@ namespace Diablo4Copy.Managers
 
         public void OnClickOverview(int id)
         {
+            canHover = false;
+            selectionModal.gameObject.SetActive(false);
             overviewModal.Show(id);
             overviewModal.gameObject.SetActive(true);
         }
 
-        public void OnClickSelect(int id) => costumizationManager.Select(id);
+        public void OnClickSelect(int id)
+        {
+            canHover = false;
+            costumizationManager.Select(id);
+            selectionModal.gameObject.SetActive(false);
+        }
 
         public void OnMouseOverCharacter(int id) => ShowSelectionModal(id);
 
