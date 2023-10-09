@@ -4,9 +4,16 @@ namespace Diablo4Copy.Managers
 {
     public class CostumizationManager : MonoBehaviour
     {
-        public void Select(int id)
+        private static int id;
+
+        public static void Select(int id)
         {
-            
+            CostumizationManager.id = id;
+        }
+
+        private void LoadCharacter()
+        {
+
         }
     }
 }
