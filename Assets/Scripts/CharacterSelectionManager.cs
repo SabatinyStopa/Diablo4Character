@@ -10,6 +10,8 @@ namespace Diablo4Copy.Managers
         [SerializeField] private Transform[] points;
         [SerializeField] private string[] classNames;
         [SerializeField] private SelectionModal selectionModal;
+        [SerializeField] private OverviewModal overviewModal;
+        [SerializeField] private CostumizationManager costumizationManager;
 
         private void Awake() => Instance = this;
 
@@ -19,6 +21,14 @@ namespace Diablo4Copy.Managers
             selectionModal.SetPosition(points[id].position);
             selectionModal.SetText(classNames[id]);
         }
+
+        public void OnClickOverview(int id)
+        {
+            overviewModal.Show(id);
+            overviewModal.gameObject.SetActive(true);
+        }
+
+        public void OnClickSelect(int id) => costumizationManager.Select(id);
 
         public void OnMouseOverCharacter(int id) => ShowSelectionModal(id);
 

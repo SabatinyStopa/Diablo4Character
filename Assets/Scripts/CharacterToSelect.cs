@@ -10,5 +10,11 @@ namespace Diablo4Copy.Common
         private void OnMouseOver() => CharacterSelectionManager.Instance.OnMouseOverCharacter(id);
 
         private void OnMouseExit() => CharacterSelectionManager.Instance.OnMouseExitCharacter();
+
+        private void OnMouseDown()
+        {
+            if (Input.GetMouseButtonDown(0)) CharacterSelectionManager.Instance.OnClickSelect(id);
+            else if (Input.GetMouseButtonDown(1)) CharacterSelectionManager.Instance.OnClickOverview(id);
+        }
     }
 }
