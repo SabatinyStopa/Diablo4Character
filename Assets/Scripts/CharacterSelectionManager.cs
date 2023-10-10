@@ -11,7 +11,7 @@ namespace Diablo4Copy.Managers
         [SerializeField] private string[] classNames;
         [SerializeField] private SelectionModal selectionModal;
         [SerializeField] private OverviewModal overviewModal;
-        [SerializeField] private CostumizationManager costumizationManager;
+        [SerializeField] private CustomizationManager costumizationManager;
         [SerializeField] private TransationManager transationManager;
 
         private bool canHover = true;
@@ -38,7 +38,7 @@ namespace Diablo4Copy.Managers
         public void OnClickSelect(int id)
         {
             canHover = false;
-            CostumizationManager.Select(id);
+            CustomizationManager.Select(id);
             selectionModal.gameObject.SetActive(false);
             overviewModal.gameObject.SetActive(false);
             transationManager.PlayTransaction();

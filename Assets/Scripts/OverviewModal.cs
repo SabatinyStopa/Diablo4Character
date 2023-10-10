@@ -13,10 +13,7 @@ namespace Diablo4Copy.Common
             currentId = id;
 
             for (int i = 0; i < descriptionsPanels.Length; i++)
-            {
-                if (i == id) descriptionsPanels[i].SetActive(true);
-                else descriptionsPanels[i].SetActive(false);
-            }
+                descriptionsPanels[i].SetActive(i == id);
         }
 
         public void OnClickClose()
