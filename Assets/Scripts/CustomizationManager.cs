@@ -12,9 +12,7 @@ namespace Diablo4Copy.Managers
         [SerializeField] private Transform cameraPosition;
 
         public static void Select(int id) => CustomizationManager.id = id;
-
         public void LoadPresets(int id) => presetManager.LoadPresetPanel(id);
-
         public void OnClickBackButton() => presetManager.OnClickBackButton();
 
         public void CustomizeCharacter(Transform characterToCustomize)

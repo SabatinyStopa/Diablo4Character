@@ -1,8 +1,7 @@
+using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using System.Runtime.CompilerServices;
 
 namespace Diablo4Copy.Managers
 {
@@ -25,7 +24,6 @@ namespace Diablo4Copy.Managers
                 cameraToMove.position = Vector3.MoveTowards(cameraToMove.position, finalPosition.position, speed * Time.deltaTime);
                 yield return null;
             }
-
         }
 
         private IEnumerator Transaction()
