@@ -12,11 +12,16 @@ namespace Diablo4Copy.Common
             if (!CharacterSelectionManager.Instance.CanHover) return;
 
             CharacterSelectionManager.Instance.OnMouseOverCharacter(id);
+            gameObject.layer = LayerMask.NameToLayer("Lightable");
 
             if (Input.GetMouseButtonDown(0)) CharacterSelectionManager.Instance.OnClickSelect(id);
             else if (Input.GetMouseButtonDown(1)) CharacterSelectionManager.Instance.OnClickOverview(id);
         }
 
-        private void OnMouseExit() => CharacterSelectionManager.Instance.OnMouseExitCharacter();
+        private void OnMouseExit()
+        {
+            CharacterSelectionManager.Instance.OnMouseExitCharacter();
+            gameObject.layer = LayerMask.NameToLayer("Default");;
+        }
     }
 }
