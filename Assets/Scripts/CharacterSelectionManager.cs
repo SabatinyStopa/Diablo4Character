@@ -9,6 +9,8 @@ namespace Diablo4Copy.Managers
 
         [SerializeField] private Transform[] points;
         [SerializeField] private string[] classNames;
+        [SerializeField] private Transform[] lightPoints;
+        [SerializeField] private Transform lightObj;
         [SerializeField] private SelectionModal selectionModal;
         [SerializeField] private OverviewModal overviewModal;
         [SerializeField] private CustomizationManager costumizationManager;
@@ -44,8 +46,17 @@ namespace Diablo4Copy.Managers
             transationManager.PlayTransaction();
         }
 
-        public void OnMouseOverCharacter(int id) => ShowSelectionModal(id);
+        public void OnMouseOverCharacter(int id)
+        {
+            ShowSelectionModal(id);
+            lightObj.gameObject.SetActive(true);
+            lightObj.position = lightPoints[id].position;
+        }
 
-        public void OnMouseExitCharacter() => selectionModal.gameObject.SetActive(false);
+        public void OnMouseExitCharacter()
+        {
+            selectionModal.gameObject.SetActive(false);
+            lightObj.gameObject.SetActive(false);
+        }
     }
 }
